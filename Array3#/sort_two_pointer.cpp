@@ -1,0 +1,45 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+void display(vector<int>&v){
+    int n = v.size();
+
+    for(int i = 0;i<n;i++){
+        cout<<v[i]<<" ";
+    }
+}
+
+void sort01(vector<int>&v){
+       
+    int n = v.size();
+    int i = 0;
+    int j = n-1;
+
+    while(i<j){
+        if(v[j]==1) j--;
+        else if(v[i]==0) i++;
+        else if(v[i]==1&&v[j]==0){
+            swap(v[i],v[j]);
+            i++;
+            j--;
+        }
+    }
+}
+
+int main(){
+    int n;
+    cin>>n;
+
+    vector<int>v;
+
+    for(int i = 0;i<n;i++){
+        int x;
+        cin>>x;
+        v.push_back(x);
+    }
+    sort01(v);
+    display(v);
+
+}
